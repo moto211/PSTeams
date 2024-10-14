@@ -13,7 +13,7 @@ schema: 2.0.0
 ## SYNTAX
 
 ```
-Send-TeamsMessageBody [-URI] <String> [[-Body] <String>] [<CommonParameters>]
+Send-TeamsMessageBody [-Uri] <String> [[-Body] <String>] [[-Supress] <Boolean>] [-Wrap] [[-Proxy] <Uri>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -45,13 +45,28 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -URI
+### -Supress
+{{ Fill Supress Description }}
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 2
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Uri
 {{Fill URI Description}}
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: TeamsID
+Aliases: TeamsID, Url
 
 Required: True
 Position: 0
@@ -60,8 +75,37 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -Wrap
+{{ Fill Wrap Description }}
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Proxy
+{{ Fill in Proxy Description }}
+
+```yaml
+Type: System.Uri
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 

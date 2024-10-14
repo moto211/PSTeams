@@ -1,8 +1,6 @@
-param (
+param(
     $TeamsID = $Env:TEAMSPESTERID
 )
-#Requires -Modules Pester
-Import-Module $PSScriptRoot\..\PSTeams.psd1 -Force #-Verbose
 
 Describe 'Send-TeamsMessage - Should send messages properly' {
     It 'Given 1 button, 3 facts, 1 section should not throw' {
@@ -23,12 +21,12 @@ Describe 'Send-TeamsMessage - Should send messages properly' {
             -ActivityDetails $Fact1, $Fact2, $Fact3
 
         Send-TeamsMessage `
-            -URI $TeamsID `
+            -Uri $TeamsID `
             -MessageTitle 'PSTeams - Pester Test' `
             -MessageText "This text won't show up" `
             -Color DodgerBlue `
-            -Sections $Section -ShowErrors
-    }
+            -Sections $Section -ErrorAction Stop
+    } -TestCases @{ TeamsID = $TeamsID }
     It 'Given 3 facts, 1 section should not throw' {
         $Fact1 = New-TeamsFact -Name 'PS Version' -Value "**$($PSVersionTable.PSVersion)**"
         $Fact2 = New-TeamsFact -Name 'PS Edition' -Value "**$($PSVersionTable.PSEdition)**"
@@ -44,10 +42,10 @@ Describe 'Send-TeamsMessage - Should send messages properly' {
             -ActivityDetails $Fact1, $Fact2, $Fact3
 
         Send-TeamsMessage `
-            -URI $TeamsID `
+            -Uri $TeamsID `
             -MessageTitle 'PSTeams - Pester Test' `
             -MessageText "This text won't show up" `
             -Color DodgerBlue `
-            -Sections $Section -ShowErrors
-    }
+            -Sections $Section -ErrorAction Stop
+    } -TestCases @{ TeamsID = $TeamsID }
 }
